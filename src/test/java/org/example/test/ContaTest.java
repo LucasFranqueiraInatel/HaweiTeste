@@ -12,11 +12,12 @@ public class ContaTest {
 
     @Before
     public void setup(){
-        cc = new ContaCorrenteService("1234", "12345678-9");
-        cp = new ContaPoupancaService("4321", "98765432-1");
+        //cc = new ContaCorrenteService("1234", "12345678-9");
+        //cp = new ContaPoupancaService("4321", "98765432-1");
     }
     @Test
     public void ContaCorrentePagarCredito_Ok(){
+        cc = new ContaCorrenteService("1234", "12345678-9");
         boolean verifica = cc.pagarCredito(10);
         assertEquals(true, verifica);
 
@@ -24,6 +25,8 @@ public class ContaTest {
 
     @Test
     public void ContaCorrentePagarCredito_Erro() {
+        cc = new ContaCorrenteService("1234", "12345678-9");
+        //cp = new ContaPoupancaService("4321", "98765432-1");
         assertEquals(false, cc.pagarCredito(-10));
     }
     }
